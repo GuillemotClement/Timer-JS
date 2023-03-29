@@ -1,33 +1,53 @@
-//DECLARATION DES VARIABLES
-let seconde = 10;
-
-//DECLARATION DES FONCTIONS
-//Fonction Start qui créer une variable qui stocke l'interval
-function start(){
-    let interval = 0;
-    interval = setInterval(decompte(), 1000);
-}
-function stop(){
-    clearTimeout(interval);
-}
-
-function decompte(){
-    seconde--;
-    if(seconde != 0){
-        let affichage = document.createElement("p");
-        affichage.textContent = seconde;
-        document.body.append(affichage);
-    }
-    else {
-        stop();
-    }
-}
-//Récupération du boutton
+//STEP2
 let btn = document.querySelector("#btn");
+let interval; 
+let seconde = 10;
+//STEP3
+// btn.addEventListener('click', ()=>{
+//     start();
+// })
+//CORRECTION
+btn.addEventListener('click', start);
 
-//Création de l'évènement au clic de l'utilisateur
-btn.addEventListener('click', ()=>{
-    start();
-})
+// function start(){
+//     let interval = 0;
+//     interval = setInterval(decompte(), 1000);
+// }
+//CORRECTION
+function start() {
+    interval = setInterval(decompte, 1000); 
+}
 
-//Création de la fonction start()
+// function stop(){
+//     clearTimeout(interval);
+// }
+//CORRECTION
+function stop(){
+    clearInterval(interval)
+    document.body.innerHTML += "STOP"
+}
+
+// function decompte(){
+//     seconde--;
+//     if(seconde != 0){
+//         let affichage = document.createElement("p");
+//         affichage.textContent = seconde;
+//         document.body.append(affichage);
+//     }
+//     else {
+//         stop();
+//     }
+// }
+//CORRECTION
+function decompte(){
+        seconde--;
+        if(seconde == 0){
+            stop();
+        }
+        else {
+           document.body.innerHTML += seconde + '<br>';
+        }
+}
+
+
+
