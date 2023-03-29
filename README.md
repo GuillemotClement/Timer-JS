@@ -1,1 +1,1 @@
-# Timer-JS
+# TimerJS
